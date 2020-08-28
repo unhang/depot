@@ -4,6 +4,9 @@ class ProductTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+
+  fixtures :products
+
   def new_product(image_url)
     Product.new(
       title: 'My Book Title',
