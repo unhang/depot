@@ -38,6 +38,16 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
 
+  test 'product is not valid without a unique title' do
+    product = Product.new title: products(:ruby).title,
+                          description: 'yyy',
+                          price: 1.0,
+                          image_url: 'fred.gif'
+    assert product.valid?
+    assert_equal [I18n.translate('errors.messages.taken')],
+                  product.errors[:title]
+  end
+
   test 'product price must be positive' do
     product = Product.new(title: 'My Book Title',
                           description: 'yyy',
