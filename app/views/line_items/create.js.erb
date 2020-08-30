@@ -1,2 +1,5 @@
-document.getElementById('cart').innerHTML="<%=j render(@cart) %>"
-//$('#cart').html("<%= j render @cart %>")
+$('#cart').html("<%= j render @cart %>")
+
+$('#current_item')
+  .css({'background': '#88ff88'})
+  .animate({'background': '#114411'}, 100);
