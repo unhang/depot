@@ -1,5 +1,6 @@
 class LineItem < ApplicationRecord
-  belongs_to :product
+  belongs_to :order, optional: true 
+  belongs_to :product, optional: true
   belongs_to :cart
 
   after_update :destroy_if_quantity_is_zero
